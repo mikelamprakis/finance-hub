@@ -4,6 +4,7 @@ import { Col, Row, Typography, Select } from 'antd';
 import {useGetStockDetailsQuery} from '../services/stockDetailsApi'
 const { Title, Text } = Typography;
 function StockDetails() {
+
   const { stockId } = useParams();
 
   const [countryCode, setCountryCode] = useState('')

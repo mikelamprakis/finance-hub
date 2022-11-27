@@ -30,8 +30,6 @@ const NavBar = () => {
         </Menu>
 
 
-
-      
     </div>
   )
 }

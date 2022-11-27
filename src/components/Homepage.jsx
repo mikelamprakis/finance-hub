@@ -6,6 +6,7 @@ import {useRetrieveStocksForGivenCountryQuery} from '../services/stocksApi'
 import {useGetStockDetailsQuery} from '../services/stockDetailsApi'
 import Cryptocurrencies from './Cryptocurrencies';
 import News from './News';
+import Stocks from './Stocks';
 
 const { Title} = Typography;
 
@@ -13,7 +14,7 @@ function Homepage() {
 
   const {data, isFetching} = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
-  const {stocks} = useRetrieveStocksForGivenCountryQuery();
+  // const {stocks} = useRetrieveStocksForGivenCountryQuery();
  
   console.log( useGetStockDetailsQuery('APPL', 'US'))
 
@@ -50,6 +51,16 @@ function Homepage() {
 
       <Cryptocurrencies simplified />
 
+      <div className='home-heading-container'>
+        <Title level={2} className='home-title'>Top 15 US Stocks</Title>
+        <Title level={3} className='show-more'>
+          <Link to='/stocks'>Show more</Link>
+        </Title>
+      </div>
+
+      <Stocks simplified />
+
+      
       <div className='home-heading-container'>
         <Title level={2} className='home-title'>Latest Crypto News</Title>
         <Title level={3}>

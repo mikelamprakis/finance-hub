@@ -14,10 +14,27 @@ const countries= ['GB', 'US', 'DE', 'FR', 'SG', 'HK', 'IT', 'CA', 'AU']
 // US|BR|AU|CA|FR|DE|HK|IN|IT|ES|GB|SG
 
 
-function Stocks() {
+function Stocks({simplified}) {
 
   const [selectedCountryCode, setSelectedCountry ] = useState('US');
   const {data :stocks, isFetching} = useRetrieveStocksForGivenCountryQuery(selectedCountryCode);
+  
+  var stockList = [];
+  if (simplified) {
+    stocks?.data.map( stock => {
+      if (stockList.length < 15){
+        stockList.push(stock)
+      }
+    })
+  }else{
+    stockList = stocks?.data
+  }
+  console.log('--->')
+  console.log(stockList)
+ 
+
+
+  
 
   if (isFetching) return 'loading...';
   return (
@@ -47,7 +64,7 @@ function Stocks() {
 
     <Row gutter={[5,5]}  className="stocks">
     {
-      stocks?.data?.map( (stock, i ) => (
+      stockList?.map( (stock, i ) => (
         <Col xs={24} sm={12} lg={8} key={`${selectedCountryCode}-${stock.symbol}`} style={{color:'white', textAlign: 'left', border: '0.5px white solid'}}>
           <Link key={`${selectedCountryCode}-${stock.symbol}`} to={`/stocks/${selectedCountryCode}-${stock.symbol}`}>
             <Card>
