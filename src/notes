@@ -1,0 +1,15 @@
+rafce
+
+npm install antd @ant-design/icons react-redux @reduxjs/toolkit axios chart.js html-react-parser milify moment react-chartjs-2
+
+
+antd
+@ant-design/icons
+react-redux
+@reduxjs/toolkit
+axios
+chart.js
+html-react-parser
+millify (parse large numbers to readable strings)
+moment (parse times and dates)
+react-chartjs-2
